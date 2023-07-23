@@ -78,7 +78,7 @@ class StateCards extends Component {
             value={confirmedCard.name}
             onClick={() => this.cardClick(confirmedCard.name)}
           >
-            <div testid="stateSpecificConfirmedCasesContainer">
+            <div data-testid="stateSpecificConfirmedCasesContainer">
               <p className="home-paragraph-heading">{confirmedCard.name}</p>
               <img
                 src={confirmedCard.logo}
@@ -95,7 +95,7 @@ class StateCards extends Component {
             value={activeCard.name}
             onClick={() => this.cardClick(activeCard.name)}
           >
-            <div testid="stateSpecificActiveCasesContainer">
+            <div data-testid="stateSpecificActiveCasesContainer">
               <p className="home-paragraph-heading">{activeCard.name}</p>
               <img
                 src={activeCard.logo}
@@ -112,7 +112,7 @@ class StateCards extends Component {
             value={recoveredCard.name}
             onClick={() => this.cardClick(recoveredCard.name)}
           >
-            <div testid="stateSpecificRecoveredCasesContainer">
+            <div data-testid="stateSpecificRecoveredCasesContainer">
               <p className="home-paragraph-heading">{recoveredCard.name}</p>
               <img
                 src={recoveredCard.logo}
@@ -131,7 +131,7 @@ class StateCards extends Component {
             value={deceasedCard.name}
             onClick={() => this.cardClick(deceasedCard.name)}
           >
-            <div testid="stateSpecificDeceasedCasesContainer">
+            <div data-testid="stateSpecificDeceasedCasesContainer">
               <p className="home-paragraph-heading">Deceased</p>
               <img
                 src={deceasedCard.logo}

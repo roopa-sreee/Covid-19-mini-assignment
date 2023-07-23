@@ -1,13 +1,25 @@
 import {Link, withRouter} from 'react-router-dom'
-import GiHamburgerMenu from 'react-icons/gi'
-import Popup from 'reactjs-popup'
-import IoIosCloseCircle from 'react-icons/io'
+import {AiFillCloseCircle} from 'react-icons/ai'
 import {Component} from 'react'
 
 import './index.css'
 
 class Header extends Component {
+  state = {
+    hamburgermenuClicked: false,
+  }
+
+  onClickHamburgermenu = () => {
+    const {hamburgermenuClicked} = this.state
+    this.setState({hamburgermenuClicked: !hamburgermenuClicked})
+  }
+
+  onClickCloseButton = () => {
+    this.setState({hamburgermenuClicked: false})
+  }
+
   render() {
+    const {hamburgermenuClicked} = this.state
     const {match} = this.props
     const {path} = match
     const homeClassName = path === '/' ? 'link-name highlight' : 'link-name'
@@ -17,7 +29,7 @@ class Header extends Component {
 
     return (
       <>
-        <nav className="navbar">
+        <ul className="navbar">
           <Link to="/" className="link-item">
             <p className="app-name">
               COVID19
@@ -41,47 +53,45 @@ class Header extends Component {
             </Link>
           </ul>
 
-          <div className="popup-container">
-            <Popup
-              modal
-              trigger={
-                <button type="button" className="hamburger-menu-button">
-                  <GiHamburgerMenu className="hamburger-menu-icon" />
-                </button>
-              }
+          <button
+            className="hamburger-menu"
+            type="button"
+            onClick={this.onClickHamburgermenu}
+          >
+            <img
+              src="https://res.cloudinary.com/dfxl8sk2x/image/upload/v1688279982/add-to-queue_1_rlvglc.png"
+              className="hamburger-menu-image"
+              alt="hamburger menu"
+            />
+          </button>
+        </ul>
+        {hamburgermenuClicked && (
+          <div className="small-device-nav-options-container">
+            <ul className="small-device-header-options">
+              <Link to="/" className="link-item">
+                <li key="1">
+                  <button type="button" className={homeClassName}>
+                    Home
+                  </button>
+                </li>
+              </Link>
+              <Link to="/about" className="link-item">
+                <li key="2">
+                  <button type="button" className={aboutClassName}>
+                    About
+                  </button>
+                </li>
+              </Link>
+            </ul>
+            <button
+              className="close-button"
+              type="button"
+              onClick={this.onClickCloseButton}
             >
-              {close => (
-                <>
-                  <div className="popup-content">
-                    <ul className="nav-options-small-device">
-                      <Link to="/" className="link-item">
-                        <li key="1">
-                          <button type="button" className={homeClassName}>
-                            Home
-                          </button>
-                        </li>
-                      </Link>
-                      <Link to="/about" className="link-item">
-                        <li key="2">
-                          <button type="button" className={aboutClassName}>
-                            About
-                          </button>
-                        </li>
-                      </Link>
-                    </ul>
-                    <button
-                      type="button"
-                      className="close-button"
-                      onClick={() => close()}
-                    >
-                      <IoIosCloseCircle />
-                    </button>
-                  </div>
-                </>
-              )}
-            </Popup>
+              <AiFillCloseCircle />
+            </button>
           </div>
-        </nav>
+        )}
       </>
     )
   }

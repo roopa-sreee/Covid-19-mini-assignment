@@ -101,7 +101,7 @@ class Charts extends Component {
   graphCharts = () => (
     <div>
       <h1 className="charts-graph-heading">Daily Spread Trends</h1>
-      <div testid="lineChartsContainer" className="lineChart-graph">
+      <div data-testid="lineChartsContainer" className="lineChart-graph">
         <div className="charts-graph-list-margin charts-graph-red">
           {this.graphList('confirmed', '#ff073a')}
         </div>
@@ -142,7 +142,7 @@ class Charts extends Component {
     return (
       <>
         {isLoading ? (
-          <div className="loading-class" testid="timeLinesDataLoader">
+          <div className="loading-class" data-testid="timeLinesDataLoader">
             <Loader type="Oval" color="#007bff" height={50} width={50} />
           </div>
         ) : (

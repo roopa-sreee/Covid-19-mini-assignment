@@ -1,6 +1,6 @@
-import VscGithubAlt from 'react-icons/vsc'
-import GrInstagram from 'react-icons/gr'
-import FiTwitter from 'react-icons/fi'
+import {VscGithubAlt} from 'react-icons/vsc'
+import {GrInstagram} from 'react-icons/gr'
+import {FiTwitter} from 'react-icons/fi'
 
 const Footer = () => (
   <div>
